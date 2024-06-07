@@ -26,7 +26,7 @@ export default function Dashboard() {
   return (
     <Box p={4}>
       <Flex justifyContent="space-between" alignItems="center" mb={4}>
-        <Heading flex="1" textAlign="center" fontSize={50} fontWeight={'700'}>Dashboard</Heading>
+        <Heading flex="1" textAlign="center" fontSize={40} fontWeight={'700'}>Dashboard</Heading>
         <Button onClick={handleLogout} colorScheme="red">
           Logout
         </Button>

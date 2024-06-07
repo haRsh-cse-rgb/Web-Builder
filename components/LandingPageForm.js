@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, Button, Input, Textarea, VStack, Image } from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, VStack, Image, Heading, Container } from '@chakra-ui/react';
 import { saveLandingPage } from '../utils/state';
 
 export default function LandingPageForm() {
@@ -45,7 +45,9 @@ export default function LandingPageForm() {
 
   return (
     <Box p={4}>
-      <VStack spacing={4}>
+    <Heading flex="1" textAlign="center" fontSize={40} fontWeight={'700'}>Create Landing Page</Heading>
+    <Container maxW='xl'>
+      <VStack spacing={4} mt={5}>
         <Input
           placeholder="Title"
           value={title}
@@ -112,8 +114,9 @@ export default function LandingPageForm() {
         {logoPrev && (
           <Image src={logoPrev} boxSize="64" objectFit="contain" alt='logoPreview'/>
         )}
-        <Button onClick={handleSave} colorScheme="teal">Save</Button>
+        <Button onClick={handleSave} colorScheme="purple">Save</Button>
       </VStack>
+      </Container>
     </Box>
   );
 }

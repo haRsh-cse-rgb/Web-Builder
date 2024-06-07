@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Box, Button, Heading, Input, Textarea, VStack, HStack, Image } from '@chakra-ui/react';
+import { Box, Button, Heading, Input, Textarea, VStack, HStack, Image, Container } from '@chakra-ui/react';
 import { getLandingPage, saveLandingPage, publishLandingPage, unpublishLandingPage } from '../../../utils/state';
 
 export default function EditLandingPage() {
@@ -43,8 +43,11 @@ export default function EditLandingPage() {
   };
 
   return (
-    <Box p={4}>
-      <Heading mb={4}>Edit Landing Page</Heading>
+    <Box p={4} >
+      
+      <Heading flex="1" textAlign="center" fontSize={40} fontWeight={'700'}>Edit Landing Page</Heading>
+
+      <Container maxW={'xl'} mt={5}>
       <VStack spacing={4}>
         <Input
           placeholder="Title"
@@ -77,14 +80,15 @@ export default function EditLandingPage() {
           )}
         </Box>
         <HStack spacing={4}>
-          <Button onClick={handleSave} colorScheme="green">Save</Button>
+          <Button onClick={handleSave} colorScheme="purple">Save</Button>
           {page.status === 'Draft' ? (
             <Button onClick={handlePublish} colorScheme="blue">Publish</Button>
           ) : (
-            <Button onClick={handleUnpublish} colorScheme="yellow">Unpublish</Button>
+            <Button onClick={handleUnpublish} colorScheme="red">Unpublish</Button>
           )}
         </HStack>
       </VStack>
+      </Container>
     </Box>
   );
 }
