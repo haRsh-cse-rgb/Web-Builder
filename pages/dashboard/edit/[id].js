@@ -6,13 +6,13 @@ import { getLandingPage, saveLandingPage, publishLandingPage, unpublishLandingPa
 export default function EditLandingPage() {
   const router = useRouter();
   const { id } = router.query;
-  const [page, setPage] = useState({ title: '', description: '', image: '', header: '', footer: '', components: [], status: 'Draft' });
+  const [page, setPage] = useState({ title: '', description: '', image: '', header: '', footer: '', status: 'Draft' });
   const [imagePreview, setImagePreview] = useState('');
 
   useEffect(() => {
     if (id) {
       const fetchedPage = getLandingPage(id);
-      setPage(fetchedPage || { title: '', description: '', image: '', header: '', footer: '', components: [], status: 'Draft' });
+      setPage(fetchedPage || { title: '', description: '', image: '', header: '', footer: '', status: 'Draft' });
       setImagePreview(fetchedPage?.image || '');
     }
   }, [id]);
@@ -52,7 +52,7 @@ export default function EditLandingPage() {
         <Input
           placeholder="Title"
           value={page.title}
-          onChange={(e) => setPage({ ...page, title: e.target.value })}
+          onChange={(e) => setPage({...page, title: e.target.value })}
         />
         <Textarea
           placeholder="Description"
@@ -81,7 +81,7 @@ export default function EditLandingPage() {
         </Box>
         <HStack spacing={4}>
           <Button onClick={handleSave} colorScheme="purple">Save</Button>
-          {page.status === 'Draft' ? (
+          {(page.status === 'Draft' || page.status === undefined)  ? (
             <Button onClick={handlePublish} colorScheme="blue">Publish</Button>
           ) : (
             <Button onClick={handleUnpublish} colorScheme="red">Unpublish</Button>

@@ -56,7 +56,7 @@ export default function Dashboard() {
               <CardBody>
                 <Heading size="md">{page.title}</Heading>
                 <Text py="2" color={page.status === 'Live' ? 'red.500' : 'black'}>
-                  {page.status === 'Live' && (
+                  {page.status === 'Live'  && (
                     <Box as="span" display="inline-block" mr="2" borderRadius="50%" bg="red.500" width="8px" height="8px" />
                   )}
                   Status: {page.status || 'Draft'}

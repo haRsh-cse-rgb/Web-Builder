@@ -15,7 +15,7 @@ export default function LandingPageForm() {
   const router = useRouter();
 
   const handleSave = () => {
-    saveLandingPage({ title, description, header, footer, image, logo, components: [] });
+    saveLandingPage({ title, description, header, footer, image, logo });
     router.push('/dashboard');
   };
 
